@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body { margin: 0; background: #12063a; }
+body { font-family: Inter, system-ui, sans-serif; overflow-x: hidden; }
+
+/* Headline letters: same metrics in both layers so they line up exactly */
+.headline-text {
+  font-family: Syne, system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.45em;
+  padding-left: 0.45em; /* balances trailing letter-spacing so text is truly centred */
+  white-space: nowrap;
+  line-height: 1.1;
+}
+.headline-base { color: rgba(255, 255, 255, 0.22); }
+.headline-fill {
+  color: #fff;
+  text-shadow: 0 0 24px rgba(255, 210, 63, 0.75), 0 0 60px rgba(255, 61, 129, 0.6);
+  clip-path: inset(0 100% 0 0); /* revealed by scroll */
+}
+
+.stat-glow {
+  opacity: 0;
+  background: radial-gradient(120% 120% at 50% 0%, color-mix(in srgb, var(--c) 45%, transparent), transparent 70%);
+  box-shadow: 0 0 40px color-mix(in srgb, var(--c) 55%, transparent), inset 0 0 0 1.5px var(--c);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .headline-fill { clip-path: inset(0 0 0 0); }
+}
